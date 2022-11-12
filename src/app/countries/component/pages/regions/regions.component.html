@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col">
+    <button
+      *ngFor="let region of regions;index as i"
+      [class]="getClassCss(region)"
+      (click)="activateRegion(region)"
+      >
+      {{regiony[i]}}
+    </button>
+  </div>
+
+  <div *ngIf="countries.length>0" class="row">
+
+    {{countries[0].name.common}}
+    <li *ngFor="let country of countries">
+      {{country.name.common}}
+      {{country.capital}}
+
+      {{country.flags.png}}
+      <img [src]="country.flags.png"/>
+      {{country.region}}
+
+    </li>
+
+
+  </div>
+
+</div>
