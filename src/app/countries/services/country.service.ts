@@ -28,12 +28,5 @@ export class CountryService {
       tap(console.log)
     )
   }
-
-  getRegion2(region: string): any{
-
-    const url = `${this.apiUrl}/region/${region}`;
-    return this.http.get(url, {params: this.httpParams}).pipe(
-      tap(console.log)
-    )
   }
-}
+

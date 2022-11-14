@@ -25,6 +25,7 @@ export interface Country {
   currencies: Currency[];
   flags: Flag;
   coatOfArms: Flag;
+  translations: Translations;
 }
 
 export interface LatLng {
@@ -51,4 +52,9 @@ export interface Language {
   iso639_2: string;
   name: string;
   nativeName: string;
+}
+
+
+export interface Translations {
+  pol:Name
 }

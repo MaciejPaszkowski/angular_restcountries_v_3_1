@@ -1,28 +1,66 @@
-<div class="row">
-  <div class="col">
-    <button
-      *ngFor="let region of regions;index as i"
-      [class]="getClassCss(region)"
-      (click)="activateRegion(region)"
-      >
-      {{regiony[i]}}
-    </button>
-  </div>
+<div class="toolbar" >
+  <mat-toolbar color="primary">
+      <div class="d-flex align-items-center">
+          <img src="assets/logo.png" alt="Logo" class="logo"/>
+         Kraje Świata
+      </div>
+      <span *ngIf="back_.length>0" class="backbutton">
 
-  <div *ngIf="countries.length>0" class="row">
-
-    {{countries[0].name.common}}
-    <li *ngFor="let country of countries">
-      {{country.name.common}}
-      {{country.capital}}
-
-      {{country.flags.png}}
-      <img [src]="country.flags.png"/>
-      {{country.region}}
-
-    </li>
+        <button mat-button (click)="backButton(back_)">powrót</button>
 
 
-  </div>
+        </span>
 
+  </mat-toolbar>
+</div>
+
+
+
+<div *ngIf="activeMain">
+  <div class="row">
+
+    <div class="col"
+
+        *ngFor="let region of regions; index as i">
+        <span>
+
+          <a
+          (click)="activateRegion(region)" class="region">
+            <app-region [region]="regiony[i]" [name]="region" ></app-region>
+
+
+          </a>
+
+        </span>
+    </div>
+
+    </div>
+
+
+
+</div>
+
+<div *ngIf="activeCountries">
+
+
+<app-country-list
+[countries]='this.countries'>
+</app-country-list>
+
+</div>
+
+
+<div class="toolbar" >
+  <mat-toolbar color="primary">
+      <div class="d-flex align-items-center">
+         (c) 2022 Maciej Paszowski
+      </div>
+      <span class="backbutton">
+
+        <button mat-button (click)="openDialog()">o Mnie</button>
+
+
+        </span>
+
+  </mat-toolbar>
 </div>

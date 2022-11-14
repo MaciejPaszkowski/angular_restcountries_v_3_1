@@ -1,0 +1,32 @@
+<div>
+  <p>
+    <span>
+      Kraj:
+    </span>
+    {{data.country.translations.pol.common}}
+
+  </p>
+
+  <p>
+    <span>
+      Stolica:
+    </span>
+    {{data.country.capital}}
+  </p>
+  <img [src]="data.country.flags.png" width="200">
+  <p> Powierzchnia:
+    {{data.country.area| number:'1.0-0'}} km[kw]
+  </p>
+  <p> Liczba ludności:
+    {{data.country.population| number:'1.0-0'}} km[kw]
+  </p>
+  Waluta:
+  <span
+    *ngFor="let item of data.country.currencies | keyvalue">
+    <!-- Waluta: {{item | json }} -->
+    <span>
+      {{item.key}},
+    </span>
+  </span>
+
+</div>
